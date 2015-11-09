@@ -9,3 +9,20 @@ projdata5 <- with(  projdata3, data.frame( strptime(paste(Date, " ", Time), form
 colnames(projdata5) <- colnames(projdata3)[2:9]
 colnames(projdata5)[1]="Date"
 
+
+png(filename="plot4.png")
+par(mfrow=c(2,2))
+#plot2
+plot(projdata5$Date, projdata5$Global_active_power, ylab="Global Active Power", xlab="", type="l")
+#Voltage
+plot(projdata5$Date, projdata5$Voltage, ylab="Voltage", xlab="datetime", type="l")
+
+#plot3
+plot(projdata5$Date, projdata5$Sub_metering_1, ylab="Energy Sub Metering", xlab="", type="l")
+lines(projdata5$Date, projdata5$Sub_metering_2, col="red")
+lines(projdata5$Date, projdata5$Sub_metering_3, col="blue")
+legend("topright",c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col=c("black","red", "blue"), pch="-")
+
+#reactive
+plot(projdata5$Date, projdata5$Global_reactive_power, ylab="Global_reactive_power", xlab="datetime", type="l")
+dev.off()
