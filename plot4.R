@@ -9,10 +9,3 @@ projdata5 <- with(  projdata3, data.frame( strptime(paste(Date, " ", Time), form
 colnames(projdata5) <- colnames(projdata3)[2:9]
 colnames(projdata5)[1]="Date"
 
-png(filename="plot3.png")
-plot(projdata5$Date, projdata5$Sub_metering_1, ylab="Energy Sub Metering", xlab="", type="n")
-plot(projdata5$Date, projdata5$Sub_metering_1, ylab="Energy Sub Metering", xlab="", type="l")
-lines(projdata5$Date, projdata5$Sub_metering_2, col="red")
-lines(projdata5$Date, projdata5$Sub_metering_3, col="blue")
-legend("topright",c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col=c("black","red", "blue"), pch="-")
-dev.off()
