@@ -11,6 +11,7 @@ colnames(projdata5)[1]="Date"
 
 png(filename="plot3.png")
 plot(projdata5$Date, projdata5$Sub_metering_1, ylab="Energy Sub Metering", xlab="", type="n")
+plot(projdata5$Date, projdata5$Sub_metering_1, ylab="Energy Sub Metering", xlab="", type="l")
 lines(projdata5$Date, projdata5$Sub_metering_2, col="red")
 lines(projdata5$Date, projdata5$Sub_metering_3, col="blue")
 dev.off()
